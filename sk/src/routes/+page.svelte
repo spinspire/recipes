@@ -32,6 +32,12 @@
   Visit <a href="https://github.com/spinspire/tpl">github.com/spinspire/tpl</a> to read the documentation
 </blockquote>
 
+<ul>
+  <li><a href="/_">pb</a></li>
+  <li><a href="/apy/hello">py</a></li>
+  <li><a href="/bi">mb</a></li>
+</ul>
+
 <details>
   <summary>Collapsible</summary>
   <div>Details ...</div>
