@@ -8,6 +8,7 @@ export default defineConfig({
     proxy: {
       "/_": "http://pb:8090",
       "/api": "http://pb:8090",
+      "/apy": "http://py:8000",
     },
   },
   test: {
