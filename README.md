@@ -1,11 +1,22 @@
 # tpl
 
-SpinSpire templates for everything
+Ready to go templates for everything (commonly used stacks). Just `npx degit spinspire/tpl/something myprj`
 
 - `docker-compose`
+  - `entrypoint.sh` script to initialize a container before use.
+  - `traefik` reverse proxy `labels`, router rules, and `networks` provided so that your container can receive HTTP requests.
+  - Main `docker-compose.yml` file + `.env` and `docker-compose.override.yml` files.
 - `sk`: Svelte-Kit
+  - Static frontend with `adapter-static`. No SSR. Can be turned on if needed.
+  - Live Dev with HMR
+  - `vite` proxy to the backend server
 - `pb`: PocketBase / Go
+  - Live Dev with `modd`
+  - Go type to TypeScript type generation with `tygo`
+  - PocketBase record to TypeScript type generation with `pocketbase-typegen`
+  - Serve static frontend using `--publicDir ../sk/build`
 - `py`: Python / FastAPI
+  - Mount Python routes to a configurable prefix (e.g. `/apy`)
 - `mb`: Metabase
 
 Coming soon ...
