@@ -5,12 +5,12 @@
   // starts out false
   // becomes true when the async function f starts running
   // becomes false when f resolves (or rejects)
-  export function activityStore(f: () => {}) {
+  export function activityStore<T>(f: (t: T) => Promise<any>) {
     const store = writable(false);
-    async function run() {
+    async function run(data: T) {
       try {
         store.set(true);
-        return await f();
+        return await f(data);
       } finally {
         store.set(false);
       }
@@ -29,12 +29,12 @@
   .loader {
     width: 1em;
     height: 1em;
-    border: 0.2em solid var(--variable);
+    border: 0.2em solid var(--links);
     border-radius: 50%;
     display: inline-block;
     box-sizing: border-box;
     &.active {
-      border-bottom-color: transparent;
+      border-bottom-color: transparent; // 3/4 border solid, 1/4 transparent
       animation: rotation 1s linear infinite;
     }
   }

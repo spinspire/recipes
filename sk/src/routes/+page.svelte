@@ -12,18 +12,16 @@
     alerts.error("This is error alert!");
   });
   let result: any = {};
-  let store = readable(false);
-  async function submit(e: SubmitEvent) {
-    const form = e.target;
+  let store = activityStore(async function (form: HTMLFormElement) {
     const { action, method } = form;
-    store = activityStore(async function () {
-      const response = await fetch(action, {
-        method,
-        body: new FormData(form),
-      });
-      return await response.json();
+    const response = await fetch(action, {
+      method,
+      body: new FormData(form),
     });
-    result = await store.run();
+    return await response.json();
+  });
+  async function submit(e: SubmitEvent) {
+    result = await store.run(e.target as HTMLFormElement);
   }
 </script>
 
@@ -56,6 +54,13 @@
 
 <form method="post" action="https://httpbin.org/post" on:submit|preventDefault={submit}>
   <input type="text" name="sample-field" value="test this form with a spinner" />
-  <button type="submit"><Spinner active={$store} />Submit</button>
+  <button type="submit"><Spinner active={$store} />Button with Spinner</button>
 </form>
 <pre>{JSON.stringify(result, null, 2)}</pre>
+
+<style lang="scss">
+  button {
+    display: flex;
+    gap: 0.5rem;
+  }
+</style>
