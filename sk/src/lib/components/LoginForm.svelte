@@ -6,10 +6,14 @@
   export let passwordLogin = true;
   const coll = client.collection(authCollection);
 
-  import { client } from "../pocketbase";
+  import { client, handleRedirect } from "../pocketbase";
+  import { onMount } from "svelte";
 
   let username: string;
   let password: string;
+
+  // IMPORTANT: This handles the incoming OAuth2 redirect from auth provider
+  onMount(() => handleRedirect($page));
 
   async function submit() {
     await coll.authWithPassword(username, password);
