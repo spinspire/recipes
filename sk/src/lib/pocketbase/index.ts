@@ -60,16 +60,16 @@ export interface PageStore<T = any> extends Readable<ListResult<T>> {
   prev(): Promise<void>;
 }
 
-export function watch(
+export function watch<T>(
   idOrName: string,
   queryParams = {} as any,
   page = 1,
   perPage = 20
-): PageStore {
+): PageStore<T> {
   const collection = client.collection(idOrName);
-  let result = new ListResult(page, perPage, 0, 0, [] as Record<any, any>[]);
-  let set: Subscriber<ListResult<Record<any, any>>>;
-  const store = readable(result, (_set) => {
+  let result = new ListResult(page, perPage, 0, 0, [] as T[]);
+  let set: Subscriber<ListResult<T>>;
+  const store = readable<ListResult<T>>(result, (_set) => {
     set = _set;
     // fetch first page
     collection.getList(page, perPage, queryParams).then((r) => set((result = r)));

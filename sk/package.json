@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite dev",
+    "typegen": "pocketbase-typegen --db ../pb/pb_data/data.db --out src/lib/pocketbase/pocketbase-types.ts",
     "build": "vite build",
     "preview": "vite preview",
     "test": "playwright test",
@@ -22,6 +23,7 @@
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-svelte3": "^4.0.0",
+    "pocketbase-typegen": "^1.1.7",
     "prettier": "^2.8.7",
     "prettier-plugin-svelte": "^2.10.0",
     "sass": "^1.62.0",
