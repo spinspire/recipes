@@ -46,6 +46,11 @@ table {
   table-layout: auto;
 }
 
+label {
+  // water.css default is 'inline-block'
+  display: block;
+}
+
 // utilities
 
 // a[href] links without decortions

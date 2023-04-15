@@ -50,8 +50,8 @@ migrate((db) => {
     ],
     "listRule": "",
     "viewRule": "",
-    "createRule": null,
-    "updateRule": null,
+    "createRule": "@request.auth.id != \"\"",
+    "updateRule": "@request.auth.id != \"\"",
     "deleteRule": null,
     "options": {}
   });

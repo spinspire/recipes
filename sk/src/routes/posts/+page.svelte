@@ -1,5 +1,6 @@
 <script lang="ts">
   import DateShow from "$lib/components/DateShow.svelte";
+  import LoginGuard from "$lib/components/LoginGuard.svelte";
   import ImgModal from "$lib/pocketbase/ImgModal.svelte";
   import Paginator from "$lib/pocketbase/Paginator.svelte";
   import type { PageData } from "./$types";
@@ -9,6 +10,7 @@
 </script>
 
 <h1>Posts</h1>
+<LoginGuard><a href="new/edit"><button>Create New</button></a></LoginGuard>
 <Paginator store={posts} />
 {#each $posts.items as item}
   {@const dt = new Date(item.updated)}
@@ -22,7 +24,7 @@
         <h2>
           <a href={item.id}>{item.title}</a>
         </h2>
-        {@html item.body}
+        <div class="pre">{item.body}</div>
       </blockquote>
     </div>
   </a>
@@ -48,9 +50,13 @@
       float: right;
     }
     blockquote {
+      width: 100%;
       max-height: 5.8em;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+    .pre {
+      white-space: pre-wrap;
     }
   }
 </style>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { client } from "$lib/pocketbase";
+  import LoginGuard from "$lib/components/LoginGuard.svelte";
   import ImgModal from "$lib/pocketbase/ImgModal.svelte";
   import type { PageData } from "./$types";
 
@@ -7,9 +7,10 @@
 </script>
 
 <h1>{data.record.title}</h1>
+<LoginGuard><a href="edit"><button>Edit</button></a></LoginGuard>
 <article>
   <ImgModal record={data.record} filename={data.record.files[0]} />
-  <div>{@html data.record.body}</div>
+  <div class="pre">{data.record.body}</div>
 </article>
 
 <style lang="scss">
@@ -18,5 +19,8 @@
   }
   article :global(img) {
     float: right;
+  }
+  .pre {
+    white-space: pre-wrap;
   }
 </style>
