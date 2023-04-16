@@ -10,6 +10,7 @@ Ready to go templates for everything (commonly used stacks). Just `npx degit spi
   - Static frontend with `adapter-static`. No SSR. Can be turned on if needed.
   - Live Dev with HMR
   - `vite` proxy to the backend server
+  - Svelte component testing route at /components (works standalone and can be pulled into the route folder of any sveltekit project)
 - `pb`: PocketBase / Go
   - Live Dev with `modd`
   - Go type to TypeScript type generation with `tygo`
