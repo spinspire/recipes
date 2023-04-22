@@ -2,7 +2,7 @@
   import { page } from "$app/stores";
 </script>
 
-<div class="diagonal-stripe-1">
+<div class="carbon-fiber">
   <h1>{$page.status}<br />{$page.error?.message}</h1>
 </div>
 
