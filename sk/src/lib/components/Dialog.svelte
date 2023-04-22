@@ -1,5 +1,8 @@
 <script lang="ts">
   let dialog: HTMLDialogElement;
+  function close(e: any) {
+    if (typeof e?.target?.close === "function") e.target.close();
+  }
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -9,6 +12,6 @@
   </slot>
 </span>
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<dialog bind:this={dialog} on:click={(e) => e.target?.close()}>
+<dialog bind:this={dialog} on:click={close}>
   <slot />
 </dialog>
