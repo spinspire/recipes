@@ -15,28 +15,28 @@ export function cleanComponentPath(path: string) {
 
 // There is no real typescript type for input types
 export type HTMLInputTypes =
-  | 'button'
-  | 'checkbox'
-  | 'color'
-  | 'date'
-  | 'datetime-local'
-  | 'email'
-  | 'file'
-  | 'hidden'
-  | 'image'
-  | 'month'
-  | 'number'
-  | 'password'
-  | 'radio'
-  | 'range'
-  | 'reset'
-  | 'search'
-  | 'submit'
-  | 'tel'
-  | 'text'
-  | 'time'
-  | 'url'
-  | 'week'
+  | "button"
+  | "checkbox"
+  | "color"
+  | "date"
+  | "datetime-local"
+  | "email"
+  | "file"
+  | "hidden"
+  | "image"
+  | "month"
+  | "number"
+  | "password"
+  | "radio"
+  | "range"
+  | "reset"
+  | "search"
+  | "submit"
+  | "tel"
+  | "text"
+  | "time"
+  | "url"
+  | "week"
   | (string & {});
 
 interface CustomInput {
@@ -53,8 +53,7 @@ export const INPUT_TYPES: { [key: string]: CustomInput } = {
   date: {
     type: "date",
     processor: (x: string) => {
-      console.log("x", x)
-      return new Date(x)
+      return new Date(x);
     },
   },
   number: {

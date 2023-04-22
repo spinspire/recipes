@@ -1,11 +1,15 @@
-import PocketBase, { ListResult, Record as PBRecord, type AuthProviderInfo } from "pocketbase";
+import PocketBase, {
+  ListResult,
+  Record as PBRecord,
+  type AuthProviderInfo,
+  RecordService,
+} from "pocketbase";
 import type { Admin } from "pocketbase";
 import { readable, type Readable, type Subscriber } from "svelte/store";
-import type { Page } from "@sveltejs/kit";
-import { goto } from "$app/navigation";
 import { browser } from "$app/environment";
+import { base } from "$app/paths";
 
-export const client = new PocketBase();
+export const client = new PocketBase(browser ? window.location.origin + "/" + base : undefined);
 
 export const authModel = readable<PBRecord | Admin | null>(null, function (set) {
   client.authStore.onChange((token, model) => {
@@ -120,42 +124,28 @@ export function watch<T>(
   };
 }
 
-export async function handleRedirect(page: Page, authCollection = "users") {
-  const current = page.url;
-  const [redirectUri] = current.toString().split("?");
-
-  const code = current.searchParams.get("code");
-  if (code) {
-    const provider = JSON.parse(sessionStorage.getItem("provider") ?? "{}") as AuthProviderInfo;
-    if (provider.state !== current.searchParams.get("state")) {
-      throw "State parameters don't match.";
-    }
-    const authResponse = await client
-      .collection(authCollection)
-      .authWithOAuth2(provider.name, code, provider.codeVerifier, redirectUri, {
-        emailVisibility: true,
-      });
-    // update user "record" if "meta" has info it doesn't have
-    const { meta, record } = authResponse;
-    let changes = {} as { [key: string]: any };
-    if (!record.name && meta?.name) {
-      changes.name = meta.name;
-    }
-    if (!record.avatar && meta?.avatarUrl) {
-      const response = await fetch(meta.avatarUrl);
-      if (response.ok) {
-        const type = response.headers.get("content-type") ?? "image/jpeg";
-        changes.avatar = new File([await response.blob()], "avatar", { type });
-      }
-    }
-    if (Object.keys(changes).length) {
-      await save(authCollection, { ...record, ...changes });
-    }
-    const redirect = sessionStorage.getItem("redirect");
-    if (redirect) {
-      goto(redirect, {
-        replaceState: true,
-      });
+export async function providerLogin(provider: AuthProviderInfo, authCollection: RecordService) {
+  const authResponse = await authCollection.authWithOAuth2({
+    provider: provider.name,
+    createData: {
+      // emailVisibility: true,
+    },
+  });
+  // update user "record" if "meta" has info it doesn't have
+  const { meta, record } = authResponse;
+  let changes = {} as { [key: string]: any };
+  if (!record.name && meta?.name) {
+    changes.name = meta.name;
+  }
+  if (!record.avatar && meta?.avatarUrl) {
+    const response = await fetch(meta.avatarUrl);
+    if (response.ok) {
+      const type = response.headers.get("content-type") ?? "image/jpeg";
+      changes.avatar = new File([await response.blob()], "avatar", { type });
     }
   }
+  if (Object.keys(changes).length) {
+    authResponse.record = await save(authCollection.collectionIdOrName, { ...record, ...changes });
+  }
+  return authResponse;
 }

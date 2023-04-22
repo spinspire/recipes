@@ -10,7 +10,7 @@
 {#if $authModel}
   <Dialog>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <div class="badge" slot="trigger" on:click={() => console.log($authModel)}>
+    <div class="badge" slot="trigger">
       {#if $authModel.avatar}
         <img src={client.getFileUrl($authModel, $authModel.avatar)} alt="profile pic" />
       {/if}

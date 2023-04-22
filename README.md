@@ -2,6 +2,8 @@
 
 Ready to go templates for everything (commonly used stacks). Just `npx degit spinspire/tpl/something myprj`
 
+_Note: These templates have features that you probably don't need or use. So remember trim down whatever you borrow. The goal is to avoid reinventing the wheel._
+
 - `docker-compose`
   - `entrypoint.sh` script to initialize a container before use.
   - `traefik` reverse proxy `labels`, router rules, and `networks` provided so that your container can receive HTTP requests.
