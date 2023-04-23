@@ -1,10 +1,23 @@
 <script lang="ts">
+  import { onDestroy } from "svelte";
   import { authModel, client } from "../pocketbase";
+  import { alerts } from "./Alerts.svelte";
   import Dialog from "./Dialog.svelte";
   import LoginForm from "./LoginForm.svelte";
   async function logout() {
     client.authStore.clear();
   }
+  const unsubscribe = client.authStore.onChange((token, model) => {
+    if (model) {
+      const { name, username } = model;
+      alerts.success(`Signed in as ${name || username}`, 5000);
+    } else {
+      alerts.success(`Signed out`, 5000);
+    }
+  }, false);
+  onDestroy(() => {
+    unsubscribe();
+  });
 </script>
 
 {#if $authModel}
