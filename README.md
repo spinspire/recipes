@@ -1,6 +1,6 @@
-# tpl
+# receipes
 
-Ready to go templates for everything (commonly used stacks). Just `npx degit spinspire/tpl/something myprj`
+Ready to go templates/starter-kits for commonly used tech-stacks. Just `npx degit spinspire/recipes/something myprj`
 
 _Note: These templates have features that you probably don't need or use. So remember trim down whatever you borrow. The goal is to avoid reinventing the wheel._
 
@@ -38,11 +38,11 @@ Basically use [`degit`](https://github.com/Rich-Harris/degit).
 
 For example, use a specific template ...
 
-- `npx degit spinspire/tpl/sk frontend`
-- `npx degit spinspire/tpl/pb backend`
-- `npx degit spinspire/tpl/mb metabase`
-- `npx degit spinspire/tpl/py python`
+- `npx degit spinspire/receipes/sk frontend`
+- `npx degit spinspire/receipes/pb backend`
+- `npx degit spinspire/receipes/mb metabase`
+- `npx degit spinspire/receipes/py python`
 
 Or the whole project ...
 
-- `npx degit spinspire/tpl myprj`
+- `npx degit spinspire/receipes myprj`
