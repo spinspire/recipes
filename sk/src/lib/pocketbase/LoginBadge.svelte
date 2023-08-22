@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onDestroy } from "svelte";
   import { authModel, client } from "../pocketbase";
-  import { alerts } from "./Alerts.svelte";
-  import Dialog from "./Dialog.svelte";
+  import { alerts } from "$lib/components/Alerts.svelte";
+  import Dialog from "$lib/components/Dialog.svelte";
   import LoginForm from "./LoginForm.svelte";
   async function logout() {
     client.authStore.clear();

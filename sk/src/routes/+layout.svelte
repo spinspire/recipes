@@ -1,7 +1,7 @@
 <script lang="ts">
   import "../app.scss";
   import Nav from "$lib/components/Nav.svelte";
-  import LoginBadge from "$lib/components/LoginBadge.svelte";
+  import LoginBadge from "$lib/pocketbase/LoginBadge.svelte";
   import { base } from "$app/paths";
   import Alerts from "$lib/components/Alerts.svelte";
 </script>

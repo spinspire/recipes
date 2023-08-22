@@ -1,6 +1,6 @@
 <script lang="ts">
   import DateShow from "$lib/components/DateShow.svelte";
-  import LoginGuard from "$lib/components/LoginGuard.svelte";
+  import LoginGuard from "$lib/pocketbase/LoginGuard.svelte";
   import ImgModal from "$lib/pocketbase/ImgModal.svelte";
   import Paginator from "$lib/pocketbase/Paginator.svelte";
   import type { PageData } from "./$types";
@@ -39,12 +39,8 @@
     flex: 1 1 0;
     align-items: center;
     gap: 0.5em;
-    h2,
-    h4 {
+    h2 {
       margin: 0;
-    }
-    h4 {
-      color: var(--text-muted);
     }
     .img {
       float: right;

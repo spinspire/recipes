@@ -1,5 +1,5 @@
 <script lang="ts">
-  import LoginGuard from "$lib/components/LoginGuard.svelte";
+  import LoginGuard from "$lib/pocketbase/LoginGuard.svelte";
   import ImgModal from "$lib/pocketbase/ImgModal.svelte";
   import type { PageData } from "./$types";
 
