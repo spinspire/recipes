@@ -41,8 +41,7 @@
   <div>Details ...</div>
 </details>
 
-<Dialog>
-  <center><h2>Modal Heading</h2></center>
+<Dialog title="Modal Heading">
   <ul>
     <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aliquid</li>
     <li>
