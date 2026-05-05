@@ -4,3 +4,5 @@
 .ash_history
 node_modules
 .env
+.bash_history
+*.db
