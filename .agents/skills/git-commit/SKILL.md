@@ -7,6 +7,12 @@ allowed-tools: Bash
 
 # Git Commit with Conventional Commits
 
+**STOP**:
+
+1. DO NOT commit or deploy without asking and getting user's explicit approval.
+2. And DO NOT add untracked files unless user explicitly says so.
+3. ALWAYS show the commit log message to the user after commit.
+
 ## Overview
 
 Create standardized, semantic git commits using the Conventional Commits specification. Analyze the actual diff to determine appropriate type, scope, and message.
