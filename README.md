@@ -11,22 +11,28 @@ _Note 2: These templates have features that you probably don't need or use. So r
   - `traefik` reverse proxy `labels`, router rules, and `networks` provided so that your container can receive HTTP requests.
   - Main `docker-compose.yml` file + `.env` and `docker-compose.override.yml` files.
 - `sk`: Svelte-Kit
-  - Static frontend with `adapter-static`. No SSR. Can be turned on if needed.
-  - Live Dev with HMR
-  - `vite` proxy to the backend server
-  - Svelte component testing route at /components (works standalone and can be pulled into the route folder of any sveltekit project)
+  - Static frontend with `adapter-static`, SSR optional
+  - HMR for live dev
+  - Vite proxy to backend APIs
+  - Component testing route at /components (works standalone and can be pulled into the route folder of any sveltekit project)
 - `pb`: PocketBase / Go
-  - Live Dev with `modd`
-  - Go type to TypeScript type generation with `tygo`
-  - PocketBase record to TypeScript type generation with `pocketbase-typegen`
-  - Serve static frontend using `--publicDir ../sk/build`
+  - Live dev with `modd`
+  - Go ↔ TypeScript type generation with `tygo`
+  - PocketBase ↔ TypeScript type generation with `pocketbase-typegen`
+  - SPA mode serving `../sk/build`
+  - JS migrations
 - `py`: Python / FastAPI
-  - Mount Python routes to a configurable prefix (e.g. `/apy`)
+  - Configurable prefix routing (e.g. `/apy`)
+  - Live dev with `--reload`
+- `rs`: Rust / Axum
+  - REST API with SQLite backend
+  - Live View support (axum-live-view)
+  - File upload handling
+  - Serves static frontend from `fe/build` with SPA fallback
 - `mb`: Metabase
 
 Coming soon ...
 
-- `rs`: Rust
 - `dr`: Drupal
 - `ng`: Nginx
 - `pg`: PostGres
@@ -42,6 +48,7 @@ For example, use a specific template ...
 
 - `bunx degit spinspire/receipes/sk myprj/sk`
 - `bunx degit spinspire/receipes/pb myprj/pb`
+- `bunx degit spinspire/receipes/rs myprj/rs`
 - `bunx degit spinspire/receipes/mb myprj/mb`
 - `bunx degit spinspire/receipes/py myprj/py`
 
