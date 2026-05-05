@@ -1,3 +1,10 @@
+---
+name: pb-api
+description: Operate PocketBase via its REST API. Use for CRUD operations on collections, authentication, querying records with filters, and managing PocketBase data.
+license: MIT
+allowed-tools: Bash, curl
+---
+
 # PocketBase API
 
 Reference: https://pocketbase.io/docs/

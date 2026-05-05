@@ -1,3 +1,10 @@
+---
+name: pb-extend
+description: Extend PocketBase with custom hooks and routes in JS or Go. Use when user wants to add custom API routes, modify PocketBase behavior, or add server-side logic.
+license: MIT
+allowed-tools: Bash
+---
+
 # PocketBase Extending
 
 Reference: https://pocketbase.io/docs/js-overview/ | https://pocketbase.io/docs/go-overview/

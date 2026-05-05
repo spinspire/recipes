@@ -1,3 +1,10 @@
+---
+name: browser
+description: Control a real browser over Chrome DevTools Protocol (CDP). Use when user asks to open a page, click an element, take a screenshot, or any browser automation. Requires Chrome remote debugging enabled.
+license: MIT
+allowed-tools: chrome-devtools_*
+---
+
 # Browser Control via CDP
 
 Control a real browser over Chrome DevTools Protocol (CDP).
