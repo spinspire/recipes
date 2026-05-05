@@ -33,13 +33,27 @@ services:
     environment:
       - HOME=/app/py
       - FASTAPI_PREFIX=${FASTAPI_PREFIX}
+  rs:
+    image: rust:buster
+    # image: rust:alpine
+    user: ${UID}:${GID}
+    command: cargo run
+    expose:
+      - 3000
+    volumes:
+      - ${PWD}/rs:/app/rs
+    working_dir: /app/rs
+    environment:
+      - HOME=/app/rs
+      # - RUST_LOG=debug
+      - RUST_BACKTRACE=1
   sk:
-    image: node:alpine
+    image: bun:alpine
     user: ${UID}:${GID}
     # sveltekit build
-    command: sh -c "npx pnpm install && npm run build"
+    command: sh -c "bun install && bun run build"
     # sveltekit dev
-    # command: sh -c "npx pnpm install && npm run dev -- --host 0.0.0.0"
+    # command: sh -c "bun install && bun run dev -- --host 0.0.0.0"
     expose:
       - 5173
     volumes:

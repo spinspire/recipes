@@ -1,6 +1,6 @@
 # receipes
 
-Ready to go templates/starter-kits for commonly used tech-stacks. Just `npx degit spinspire/recipes/something myprj`
+Ready to go templates/starter-kits for commonly used tech-stacks. Just `bunx degit spinspire/recipes/something myprj`
 
 _Note 1: I'm trying to keep this README short. For a more detailed explanation, see [this article](https://spinspire.com/article/project-recipes)._
 
@@ -40,11 +40,11 @@ Basically use [`degit`](https://github.com/Rich-Harris/degit).
 
 For example, use a specific template ...
 
-- `npx degit spinspire/receipes/sk myprj/sk`
-- `npx degit spinspire/receipes/pb myprj/pb`
-- `npx degit spinspire/receipes/mb myprj/mb`
-- `npx degit spinspire/receipes/py myprj/py`
+- `bunx degit spinspire/receipes/sk myprj/sk`
+- `bunx degit spinspire/receipes/pb myprj/pb`
+- `bunx degit spinspire/receipes/mb myprj/mb`
+- `bunx degit spinspire/receipes/py myprj/py`
 
 Or the whole project ...
 
-- `npx degit spinspire/receipes myprj`
+- `bunx degit spinspire/receipes myprj`

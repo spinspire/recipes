@@ -10,6 +10,6 @@ Built-in defaults (can be changed easily):
 
 ```bash
 pnpm install
-npm run dev
-npm run build
+bun run dev
+bun run build
 ```
