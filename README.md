@@ -31,6 +31,10 @@ _Note 2: These templates have features that you probably don't need or use. So r
   - Serves static frontend from `fe/build` with SPA fallback
 - `mb`: Metabase
 
+- `ai`: OpenCode agent
+  - Custom tools in `.opencode/tools/` (sql.ts for PostgreSQL)
+  - Custom skills in `.agents/skills/` (git-commit for conventional commits)
+
 Coming soon ...
 
 - `dr`: Drupal
