@@ -1,0 +1,26 @@
+[package]
+name = "rs-axum"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "rs-axum"
+path = "src/main.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version="1.24.2", features=["full"] }
+tower = { version = "0.4", features = ["util"] }
+tower-http = { version = "0.4.0", features = ["fs", "trace"] }
+axum = { version = "0.6.12", features = ["multipart"] }
+serde = { version="1.0.152", features=["derive"] }
+tracing= "0.1.37"
+tracing-subscriber = "0.3.16"
+rusqlite = { version = "0.28.0", features = ["bundled"] }
+# sqlite = { version = "0.30.4" }
+axum-live-view = { git = "https://github.com/davidpdrsn/axum-live-view.git", version = "0.1", features = ["precompiled-js"] }
+csv = "1.2.1"
+regex = "1"
+rand = "0.8.5"
+lazy_static = "1.4.0"
